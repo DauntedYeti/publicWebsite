@@ -1,14 +1,9 @@
-FROM cloudron/base:3.2.0@sha256:ba1d566164a67c266782545ea9809dc611c4152e27686fd14060332dd88263ea
-
-RUN mkdir -p /app/code
-WORKDIR /app/code
-
-# copy code
-ADD . /app/code/
-
-
-# install packages
-RUN npm install
-
-CMD [ "node", "/app/code/app.js" ]
-
+FROM node:18-alpine as base
+WORKDIR /src
+COPY . /
+EXPOSE 3000
+ENV NODE_ENV=PRODUCTION
+RUN npm install -g npm@latest
+RUN npm ci
+COPY . /
+CMD ["npm", "start"]
