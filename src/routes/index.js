@@ -2,7 +2,6 @@ import { Router } from 'express'
 
 const indexRouter =  Router()
 
-export default  indexRouter
 
 indexRouter.get('/' , (_req , res)=>{
     // router code here
@@ -14,3 +13,4 @@ indexRouter.get('/index' , (_req , res)=>{
     res.redirect(301, '/')
 })
 
+export default  indexRouter
