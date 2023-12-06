@@ -1,4 +1,4 @@
-import express, { static } from 'express';
+import express from 'express';
 import { config } from 'dotenv';
 import morgan from 'morgan';
 
